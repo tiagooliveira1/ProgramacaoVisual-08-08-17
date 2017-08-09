@@ -15,13 +15,14 @@ namespace WebApplication1.Controllers
                 new Category() { CategoryId = 1, Name = "Keyboard"},
                 new Category() { CategoryId = 2, Name = "Monitor"},
                 new Category() { CategoryId = 3, Name = "Laptop"},
-                new Category() { CategoryId = 4, Name = "Mouse"}
+                new Category() { CategoryId = 4, Name = "Mouse"},
+                new Category() { CategoryId = 5, Name = "Printers"}
             };
         
         // GET: Categories
         public ActionResult Index()
         {
-            return View();
+            return View(categoryList.OrderBy(c => c.Name) );
         }
     }
 }
