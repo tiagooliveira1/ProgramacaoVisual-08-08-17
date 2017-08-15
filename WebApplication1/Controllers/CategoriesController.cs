@@ -24,5 +24,10 @@ namespace WebApplication1.Controllers
         {
             return View(categoryList.OrderBy(c => c.Name) );
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
