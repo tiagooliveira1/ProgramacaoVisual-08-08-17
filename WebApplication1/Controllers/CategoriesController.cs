@@ -73,5 +73,25 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Delete(long id)
+        {
+            var category = categoryList
+                .Where(c => c.CategoryId == id)
+                .First();
+            return View(category);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(Category toDelete)
+        {
+            var category = categoryList
+                .Where(c => c.CategoryId == toDelete.CategoryId)
+                .First();
+            categoryList.Remove(category);
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
